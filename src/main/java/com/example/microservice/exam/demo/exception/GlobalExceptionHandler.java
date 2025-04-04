@@ -21,7 +21,7 @@ public class GlobalExceptionHandler {
         // Custom error response
         ErrorResponse errorResponse = new ErrorResponse();
         errorResponse.setTransactionStatusCode(400);
-        errorResponse.setTransactionStatusDescription(errorMessage);  // Set the validation error message
+        errorResponse.setTransactionStatusDescription(errorMessage);
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorResponse);
     }
@@ -40,7 +40,7 @@ public class GlobalExceptionHandler {
         Map<String, Object> response = new HashMap<>();
         response.put("transactionStatusCode", 401);
         response.put("transactionStatusDescription", ex.getMessage());
-        response.put("timestamp", LocalDateTime.now());
+
 
         return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }
